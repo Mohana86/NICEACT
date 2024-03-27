@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-03-27T13:44:45.851038" rpa="false" schemaversion="5">
+<suite id="s1" name="Chatbot" source="C:\Mohi\NICE\pythonProject\TestCases\Chatbot.robot">
+<kw name="Open browser and click ChatBot" owner="ClickChatbot" type="SETUP">
+<kw name="Open the Browser with URL" owner="GenericResources">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:44:47.292111" level="INFO">Opening browser 'chrome' to base url 'https://www.hubspot.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER_NAME}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-27T13:44:47.292111" elapsed="14.248454"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-03-27T13:45:01.541565" elapsed="0.144691"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-03-27T13:45:01.686256" elapsed="0.002100"/>
+</kw>
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-03-27T13:45:01.688356" elapsed="0.126967"/>
+</kw>
+<status status="PASS" start="2024-03-27T13:44:47.291057" elapsed="14.524266"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:01.816492" level="INFO">Clicking element 'xpath://button[text()='×']'.</msg>
+<arg>${alert_closeCookies}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:01.816322" elapsed="0.222566"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>2 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-03-27T13:45:02.038888" elapsed="0.000000"/>
+</kw>
+<kw name="Select Frame" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:02.039920" level="INFO">Selecting frame 'hubspot-conversations-iframe'.</msg>
+<arg>${frame_chatbot}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<status status="PASS" start="2024-03-27T13:45:02.039920" elapsed="4.117432"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>2 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-03-27T13:45:06.157352" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:06.157352" level="INFO">Clicking element 'xpath://button[@aria-label='Open live chat']'.</msg>
+<arg>${btn_openChat}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:06.157352" elapsed="4.113818"/>
+</kw>
+<status status="PASS" start="2024-03-27T13:44:47.291057" elapsed="22.980113"/>
+</kw>
+<test id="s1-t1" name="Chatbot scenarios" line="13">
+<kw name="Input Messages">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:10.272790" level="INFO">Clicking element 'xpath://div[contains(text(),'Get free training')]'.</msg>
+<arg>xpath://div[contains(text(),'${inputMsg}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:10.272790" elapsed="4.189017"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:14.462811" level="INFO">Clicking element 'xpath://button[@aria-label='send message']'.</msg>
+<arg>${btn_sendMsg}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:14.461807" elapsed="4.137884"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-27T13:45:28.600096" level="INFO">Slept 10 seconds.</msg>
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-27T13:45:18.599691" elapsed="10.000405"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:32.659980" level="INFO">${actOutput} = Great choice - get started with HubSpot Academy here.</msg>
+<var>${actOutput}</var>
+<arg>xpath:(//div[contains(@aria-label,'HubBot says: ${responseMsg}')])[last()]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:28.600096" elapsed="4.059884"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${actOutput}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-27T13:45:32.660997" elapsed="0.001101"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${responseMsg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-27T13:45:32.662098" elapsed="0.002295"/>
+</kw>
+<arg>inputMsg=Get free training</arg>
+<arg>responseMsg=Great choice - get started with HubSpot Academy here.</arg>
+<status status="PASS" start="2024-03-27T13:45:10.272790" elapsed="22.391603"/>
+</kw>
+<status status="PASS" start="2024-03-27T13:45:10.271170" elapsed="22.395117"/>
+</test>
+<test id="s1-t2" name="Chatbot scenarios" line="13">
+<kw name="Input Messages">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:32.681243" level="INFO">Clicking element 'xpath://div[contains(text(),'Ask another question')]'.</msg>
+<arg>xpath://div[contains(text(),'${inputMsg}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:32.680247" elapsed="4.217652"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:36.897899" level="INFO">Clicking element 'xpath://button[@aria-label='send message']'.</msg>
+<arg>${btn_sendMsg}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:36.897899" elapsed="4.283008"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-27T13:45:51.181544" level="INFO">Slept 10 seconds.</msg>
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-27T13:45:41.180907" elapsed="10.000637"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:55.232226" level="INFO">${actOutput} = Ask me or select an option below.</msg>
+<var>${actOutput}</var>
+<arg>xpath:(//div[contains(@aria-label,'HubBot says: ${responseMsg}')])[last()]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:51.181544" elapsed="4.050682"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${actOutput}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-27T13:45:55.232226" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${responseMsg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-27T13:45:55.234743" elapsed="0.000000"/>
+</kw>
+<arg>inputMsg=Ask another question</arg>
+<arg>responseMsg=Ask me or select an option below.</arg>
+<status status="PASS" start="2024-03-27T13:45:32.678208" elapsed="22.556535"/>
+</kw>
+<status status="PASS" start="2024-03-27T13:45:32.666287" elapsed="22.568456"/>
+</test>
+<test id="s1-t3" name="Chatbot scenarios" line="13">
+<kw name="Input Messages">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:55.245620" level="INFO">Clicking element 'xpath://div[contains(text(),'Get started free')]'.</msg>
+<arg>xpath://div[contains(text(),'${inputMsg}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:55.245620" elapsed="4.270024"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:45:59.516200" level="INFO">Clicking element 'xpath://button[@aria-label='send message']'.</msg>
+<arg>${btn_sendMsg}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:45:59.516200" elapsed="4.111259"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-27T13:46:13.627934" level="INFO">Slept 10 seconds.</msg>
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-27T13:46:03.627459" elapsed="10.000987"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:46:17.705490" level="INFO">${actOutput} = Great choice - Get started with HubSpot CRM here.</msg>
+<var>${actOutput}</var>
+<arg>xpath:(//div[contains(@aria-label,'HubBot says: ${responseMsg}')])[last()]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:46:13.628677" elapsed="4.076813"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${actOutput}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-27T13:46:17.707021" elapsed="0.001082"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${responseMsg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-27T13:46:17.708103" elapsed="0.001233"/>
+</kw>
+<arg>inputMsg=Get started free</arg>
+<arg>responseMsg=Great choice - Get started with HubSpot CRM here.</arg>
+<status status="PASS" start="2024-03-27T13:45:55.244362" elapsed="22.466143"/>
+</kw>
+<status status="PASS" start="2024-03-27T13:45:55.239892" elapsed="22.471869"/>
+</test>
+<test id="s1-t4" name="Chatbot scenarios" line="13">
+<kw name="Input Messages">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:46:17.723666" level="INFO">Clicking element 'xpath://div[contains(text(),'Chat with the team')]'.</msg>
+<arg>xpath://div[contains(text(),'${inputMsg}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:46:17.723666" elapsed="4.264368"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:46:21.990276" level="INFO">Clicking element 'xpath://button[@aria-label='send message']'.</msg>
+<arg>${btn_sendMsg}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:46:21.989189" elapsed="4.160004"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-27T13:46:36.151506" level="INFO">Slept 10 seconds.</msg>
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-27T13:46:26.149193" elapsed="10.002313"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-27T13:46:40.231306" level="INFO">${actOutput} = In case we get disconnected, what’s a good email address for the team to follow up with you?</msg>
+<var>${actOutput}</var>
+<arg>xpath:(//div[contains(@aria-label,'HubBot says: ${responseMsg}')])[last()]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-27T13:46:36.151506" elapsed="4.079800"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${actOutput}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-27T13:46:40.232498" elapsed="0.001202"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${responseMsg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-27T13:46:40.235013" elapsed="0.001329"/>
+</kw>
+<arg>inputMsg=Chat with the team</arg>
+<arg>responseMsg=In case we get disconnected, what’s a good email address for the team to follow up with you?</arg>
+<status status="PASS" start="2024-03-27T13:46:17.722530" elapsed="22.513812"/>
+</kw>
+<status status="PASS" start="2024-03-27T13:46:17.717812" elapsed="22.519794"/>
+</test>
+<kw name="Close Browser Session" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-27T13:46:40.242330" elapsed="4.123876"/>
+</kw>
+<status status="PASS" start="2024-03-27T13:46:40.242330" elapsed="4.123876"/>
+</kw>
+<status status="PASS" start="2024-03-27T13:44:45.852135" elapsed="118.514071"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Chatbot">Chatbot</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-03-27T13:45:32.666287" level="WARN">Multiple tests with name 'Chatbot scenarios' executed in suite 'Chatbot'.</msg>
+<msg time="2024-03-27T13:45:55.239892" level="WARN">Multiple tests with name 'Chatbot scenarios' executed in suite 'Chatbot'.</msg>
+<msg time="2024-03-27T13:46:17.715282" level="WARN">Multiple tests with name 'Chatbot scenarios' executed in suite 'Chatbot'.</msg>
+</errors>
+</robot>
